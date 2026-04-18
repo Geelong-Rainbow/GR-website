@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+  <style type="text/css">
+  :root {
+    --Off-White: oklch(0.9889705061005561 0.011379634175108129 84.5777707769949);
+    --Coal: oklch(0.36483800712846853 0.0013678040297622838 17.219942098963315);
+  }
+  @media (prefers-color-scheme: light) {
+    .Cursor_Border {
+      fill: var(--Coal);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .Cursor_Border {
+      fill: var(--Off-White);
+    }
+  }
+  </style>
+  <path class="Cursor_Border" d="M0 0v41.18l8.08-7.94 3.33 8.08 9.57-3.94-3.32-8.07 11.33-.05z"/>
+  <path fill="#ffd800" d="m7.74 30.09 7.95-3.27 4.15 10.09-7.95 3.27z"/>
+  <circle cx="14" cy="33.75" r="2.75" fill="none" stroke="#7902aa" stroke-width=".875"/>
+  <path fill="#fff" d="m25.23 26.72-14.21.05L.88 36.73v2.37L11.7 28.46l15.18-.06z"/>
+  <path fill="#f4aec8" d="m23.57 25.03-13.24.06-9.45 9.28v2.36l10.14-9.96 14.2-.06z"/>
+  <path fill="#7bcce5" d="m21.9 23.35-12.27.05L.87 32v2.37l9.46-9.28 13.24-.06z"/>
+  <path fill="#945516" d="m20.24 21.67-11.3.05-8.07 7.9V32l8.75-8.6 12.27-.05Z"/>
+  <path d="m18.58 19.99-10.33.04-7.38 7.24v2.36l8.07-7.91 11.3-.05Z"/>
+  <path fill="#e22016" d="m8.24 20.03 10.33-.04L.86 2.13v25.14z"/>
+  <path fill="#f28917" d="m.88 2.13 2.46 22.73 4.9-4.83 10.33-.04Z"/>
+  <path fill="#efe524" d="m.88 2.13 4.9 20.3 2.47-2.4 10.32-.04Z"/>
+  <path fill="#78b82a" d="m.88 2.13 7.37 17.9 10.32-.04Z"/>
+  <path fill="#2c58a4" d="m.88 2.13 10.8 17.89 6.9-.03z"/>
+  <path fill="#6d2380" d="M.88 2.13 15.13 20l3.43-.01z"/>
+</svg>

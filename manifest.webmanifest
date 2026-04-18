@@ -1,0 +1,14 @@
+{
+	"icons": [
+		{
+			"type": "image/png",
+			"sizes": "192x192",
+      "src": "GR_Logo-192px.png",
+		},
+		{
+			"type": "image/png",
+			"sizes": "512x512",
+      "src": "GR_Logo-512px.png"
+		}
+	]
+}

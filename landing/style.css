@@ -1,0 +1,21 @@
+html {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+svg {
+  animation: spin 4s infinite cubic-bezier(0.75, 0.01, 0.25, 1);
+  width: calc(100vmin / 1.5);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(720deg);
+  }
+}

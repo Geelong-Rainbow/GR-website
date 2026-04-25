@@ -22,6 +22,8 @@ OKLCH is a modern colour model that aligns with human vision, accessibility need
 - [You Don't Need Javascript](https://github.com/you-dont-need/You-Dont-Need-JavaScript#you-dont-need-javascript "You Don't Need Javascript") (Usually)
   Also see: [CSS Tricks](https://css-tricks.com "CSS Tricks"), [Kevin Powell's CodePen Projects](https://codepen.io/kevinpowell "Kevin Powell's CodePen Projects"), [Theo Soti's Blog](https://theosoti.com/blog "Theo Soti's Blog")
 - We use CSS variables to define content so that our HTML is more concise.
+- Use SVG or gradients whenever possible.
+- If you must consult your favourite LLM overlord for advice, please vet its answers for assumptions/hallucinations.
 
 ## Inspiration
 - [Shiny Happy Digital's Works](https://www.shinyhappy.digital/work "Shiny Happy Digital's Works")
@@ -43,13 +45,13 @@ OKLCH is a modern colour model that aligns with human vision, accessibility need
 - [border-image Generator](https://mdn.github.io/css-examples/tools/border-image-generator "border-image Generator")
 - [HDR Gradient Generator](https://gradient.style "HDR Gradient Generator")
 - [calc Playground](https://rapidtoolset.com/en/tool/css-calc-playground "CSS calc Playground")
-- [mesh-gradient Generator](https://www.mshr.app "mesh-gradient Generator")
 - [Free SVG Generators](https://www.fffuel.co "Free SVG Generators")
 
 ### Backgrounds
 - [Perlin Noise Waves Background](https://codepen.io/pimskie/pen/xbwjybe "Perlin Noise Waves Background")
 - [Memphis SVG Repeating Pattern Background](https://codepen.io/saltymouse/pen/abbZOEN "Memphis SVG Repeating Pattern Background")
 - [Umbrellas Background](https://codepen.io/pawelqcm/pen/jMLrvd "Umbrellas Background")
+- [mesh-gradient Generator](https://www.mshr.app "mesh-gradient Generator")
 
 ### Buttons and Text
 - [Accessible Rainbow Button](https://codepen.io/mark_sottek/pen/PwoLdRP "Accessible Rainbow Button")

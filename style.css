@@ -96,8 +96,8 @@
     --Body_Border_Width: 5vmin; /* the default width of the rainbow border */
     --Body_Border_Radius: 1vmin; /* the size of the rounded corners on main parents */
     --Content_Margin: .25rem; /* the distance between main parents */
-    --Carousel_Image_Width: 25%; /* How much of the carousel width each image uses */
-    --Carousel_Image_Blend_Distance: 5%; /* How far to horizontally blend each carousel image into each other */
+    --Carousel_Image_Width: 25cqw; /* How much of the carousel width each image uses */
+    --Carousel_Image_Blend_Distance: 5; /* How far to horizontally blend each carousel image into each other */
     --Running_Marginal_Border_Width: 18.75px; /* should match the stroke width of the outermost trans flag circle on the GR logo */
     /* text: reusable strings only */
     --Entity: "Geelong Rainbow Inc.";
@@ -217,9 +217,9 @@
     --Carousel_Blend_Mask: linear-gradient(
       90deg,
       #0000,
-      calc(var(--Carousel_Image_Blend_Distance) / 2),
-      #000 var(--Carousel_Image_Blend_Distance) calc(100% - var(--Carousel_Image_Blend_Distance)),
-      calc(100% - var(--Carousel_Image_Blend_Distance) / 2),
+      calc(var(--Carousel_Image_Blend_Distance) * 1% / 2),
+      #000 calc(var(--Carousel_Image_Blend_Distance) * 1%) calc(100% - var(--Carousel_Image_Blend_Distance) * 1%),
+      calc(100% - var(--Carousel_Image_Blend_Distance) * 1% / 2),
       #0000
     );
   }
@@ -439,6 +439,7 @@
   .Carousel {
     grid-area: Carousel;
     display: flex; /* use flexbox for horizontal scrolling */
+    container-type: inline-size; /*  */
     overflow-x: hidden; /* hide carousel photos outside carousel bounds */
     background-color: #f0f; /* TEMPORARY! background color to check for carousel image blending errors */
   }
@@ -474,7 +475,7 @@
     aspect-ratio: 3 / 2; /* photos maintain typical photo aspect ratio */
     object-fit: cover; /* crop photos to best fit dimensions */
     mask-image: var(--Carousel_Blend_Mask); /* apply an opacity gradient to the left and right edges */
-    margin: 0 calc(var(--Carousel_Image_Blend_Distance) / -4); /* overlap by the total width they are set to blend by */
-    width: calc(var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2); /* carousel image width + blend overlap width */
+    margin: 0 calc(var(--Carousel_Image_Blend_Distance) / -4 * 1cqi); /* overlap by the total width they are set to blend by */
+    width: calc(var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi); /* carousel image width + blend overlap width */
   }
 }

@@ -480,6 +480,5 @@
     width: calc(var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi); /* carousel image width + blend overlap width */
     transform: translateX(calc(var(--Carousel_Image_Width) * -1 + var(--Carousel_Image_Blend_Distance) / 8 * 1cqi)); /* hide duplicate of last photo needed for seamless blend */
     animation: 60s linear 0s infinite normal both running Carousel_Scroll; /* loop carousel in 60s intervals forever, allow pausing when needed */
-    animation-range-start: 0%; /* modify with javascript for random start */
   }
 }

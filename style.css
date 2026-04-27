@@ -96,6 +96,7 @@
     --Body_Border_Width: 5vmin; /* the default width of the rainbow border */
     --Body_Border_Radius: 1vmin; /* the size of the rounded corners on main parents */
     --Content_Margin: .25rem; /* the distance between main parents */
+    --Carousel_Image_Width: 25%; /* How much of the carousel width each image uses */
     --Carousel_Image_Blend_Distance: 5%; /* How far to horizontally blend each carousel image into each other */
     --Running_Marginal_Border_Width: 18.75px; /* should match the stroke width of the outermost trans flag circle on the GR logo */
     /* text: reusable strings only */
@@ -136,6 +137,7 @@
     --Coal: oklch(0.36483800712846853 0.0013678040297622838 17.219942098963315); /*                  #3f3e3e; rgb(63,62,62);    */
     --Earth: oklch(0.475285702751123 0.03134421230298802 44.435245914265465); /*                     #6c574e; rgb(108,87,78);   */
     --Clay: oklch(0.4894096212898493 0.0870247603918415 22.627866185563676); /*                      #8b4b49; rgb(139,75,73);   */
+    /* gradient backgrounds */
     --Grainy_Rainbow_Background:
       url("Grainy_Filter.svg"),
       radial-gradient(circle at 0% 50%,
@@ -236,10 +238,11 @@
   }
   html {
     background: var(--Grainy_Rainbow_Background); /* mesh-gradient rainbow spiral background */
-    background-blend-mode: luminosity, normal, normal, normal, normal, normal, normal; /* set grainy texture SVG layer to only affect the brightness of other layers */
-    min-height: 100vh; /* ensure the background fills the entire viewport */
+    background-blend-mode: luminosity, normal, normal, normal, normal, normal, normal; /* set grainy texture SVG layer to only affect brightness of other layers */
+    min-height: 100vh; /* ensure background fills entire viewport */
     font-family: "Neue Einstellung", "Neue Einstellung Fallback";
   }
+  /* typeface family, size assignments */
   h1,
   h2 {
     font-family: "TAN St. Canard", "TAN St. Canard Fallback";
@@ -260,6 +263,7 @@
   footer {
     font-size: var(--XSmall_Font_Height);
   }
+  /* class content insertion */
   .Entity::before {
     content: var(--Entity);
   }
@@ -275,8 +279,8 @@
   .Acknowledgement_of_Country::after {
     content: var(--Acknowledgement_of_Country);
   }
-  .GR_Sunrise_Logo {
-    content: var(--GR_Sunrise_Logo);
+  .GR_Logo {
+    content: var(--GR_Logo);
   }
   .Aboriginal_Flag {
     content: var(--Aboriginal_Flag);
@@ -339,10 +343,10 @@
     }
   }
   @media (prefers-contrast: more) { /* high contrast scheme colours */
-    
+    /* add high contrast color overrides here */
   }
   @media (prefers-contrast: less) { /* low contrast scheme colours: should be mirror of high contrast scheme with unique values */
-    
+    /* add low contrast color overrides here */
   }
 }
 @layer layout { /* element arrangment */
@@ -358,13 +362,14 @@
       max(env(safe-area-inset-left), var(--Body_Border_Width)); /* set each rainbow border width to the largest value between `Body_Border_Width` and the device's `safe-area-inset` (notch clearance) */
     border-radius: var(--Body_Border_Radius);
     display: grid;
-    grid-template: /*  heights: */
-    "Header  Header" 3fr /* 30% */
-    "Sidebar Main"   6fr /* 60% */
-    "Sidebar Footer" 1fr /* 10% */
-    /           1fr  3fr;
-    /* widths:  25%, 75% */
+    grid-template: /* heights: */
+      "Header  Header" 3fr /* 30% */
+      "Sidebar Main"   6fr /* 60% */
+      "Sidebar Footer" 1fr /* 10% */
+      /           1fr  3fr;
+      /* widths: 25%, 75% */
   }
+  /* common styling */
   header,
   .Carousel,
   .Sidebar,
@@ -376,20 +381,20 @@
   header {
     grid-area: Header;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 3fr 1fr;
-    grid-template-areas:
-    "Carousel"
-    "Navigation";
+    grid-template: /* heights: */
+      "Carousel"   3fr /* 75% */
+      "Navigation" 1fr /* 25% */
+      /          1fr;
+      /* widths: 100% */
   }
   .Sidebar {
     grid-area: Sidebar;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas:
-    "Quick-Links"
-    "Calendar";
+    grid-template: /* heights: */
+      "Quick-Links" 1fr /* 50% */
+      "Calendar"    1fr /* 50% */
+      /          1fr;
+      /* widths: 100% */
   }
   main {
     grid-area: Main;
@@ -400,19 +405,20 @@
     text-align: center;
     text-wrap: balance;
     overflow-y: scroll;
-  }
-  @container (width > 90ch) {
-    
+    @container (width < 90ch) { /* if less than 90 characters can be displayed along the width: */
+      /* mobile layout goes here */
+    }
   }
   footer {
     grid-area: Footer;
     display: grid;
-    grid-template: /*                    heights: */
-    "Acknowledgement_of_Country Flags" 3fr /* 75% */
-    "Acknowledgement_of_Country ABN"   1fr /* 25% */
-    /                             3fr  1fr;
-    /* widths:                    75%, 25% */
+    grid-template: /* heights: */
+      "Acknowledgement_of_Country Flags" 3fr /* 75% */
+      "Acknowledgement_of_Country ABN"   1fr /* 25% */
+      /                         3fr  1fr;
+      /* widths:                75%, 25% */
   }
+  /* section content horizontal centring */
   .Carousel,
   .Navigation,
   .Quick-Links,
@@ -422,10 +428,18 @@
     align-self: center;
     text-align: center;
   }
+  @keyframes Carousel_Scroll {
+    0% {
+      ; /* start of carousel scroll. use translateX? */
+    }
+    100% {
+      ; /* end of carousel scroll */
+    }
+  }
   .Carousel {
     grid-area: Carousel;
-    display: flex;
-    overflow-x: hidden; /* hide carousel photos outside carousel area */
+    display: flex; /* use flexbox for horizontal scrolling */
+    overflow-x: hidden; /* hide carousel photos outside carousel bounds */
     background-color: #f0f; /* TEMPORARY! background color to check for carousel image blending errors */
   }
   .Navigation {
@@ -433,10 +447,10 @@
     border-image:
       var(--Gradient_Trans_Flag_Hard_Vertical)
       100% 0 0 0 /
-      var(--Running_Marginal_Border_Width) 0px 0px 0px /
-      calc(var(--Running_Marginal_Border_Width) * 2) 0px 0px 0px; /* centre trans flag border on top edge of navigation */
+      var(--Running_Marginal_Border_Width) 0 0 0 /
+      calc(var(--Running_Marginal_Border_Width) * 2) 0 0 0; /* centre trans flag border on top edge of navigation */
     border-style: solid;
-    isolation: isolate; /* needed to render the `border-image` over the `image-mask` on the carousel images */
+    isolation: isolate; /* required to ensure `border-image` renders over carousel images */
   }
   .Quick-Links {
     grid-area: Quick-Links;
@@ -452,15 +466,15 @@
   }
   .ABN {
     grid-area: ABN;
-    align-self: end;
-    justify-self: end;
+    align-self: end; /* align to bottom of area */
+    justify-self: end; /* align to right of area */
   }
   .Carousel > img {
-    flex: 0 0 auto;
-    aspect-ratio: 3 / 2; /* Set aspect ratio to typical photo ratio */
-    object-fit: cover; /* Crop photos to best fit inside their dimensions */
-    mask-image: var(--Carousel_Blend_Mask); /* apply an opacity gradient to the left and right edges of the carousel images */
-    margin: 0 calc(var(--Carousel_Image_Blend_Distance) / -4); /* overlap carousel images by the total width they are set to blend by */
-    width: calc(25% + var(--Carousel_Image_Blend_Distance) / 2); /* set carousel image widths to one quarter of the carousel width (accounting for margin) */
+    flex: 0 0 auto; /* don't shrink or grow photos, maintain explicit width */
+    aspect-ratio: 3 / 2; /* photos maintain typical photo aspect ratio */
+    object-fit: cover; /* crop photos to best fit dimensions */
+    mask-image: var(--Carousel_Blend_Mask); /* apply an opacity gradient to the left and right edges */
+    margin: 0 calc(var(--Carousel_Image_Blend_Distance) / -4); /* overlap by the total width they are set to blend by */
+    width: calc(var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2); /* carousel image width + blend overlap width */
   }
 }

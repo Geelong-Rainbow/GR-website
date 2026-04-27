@@ -430,10 +430,10 @@
   }
   @keyframes Carousel_Scroll {
     0% {
-      ; /* start of carousel scroll. use translateX? */
+      transform: translateX(calc(var(--Carousel_Image_Width) * 1 * -1 + var(--Carousel_Image_Blend_Distance) / 8 * 1cqi)); /* hide duplicate of last photo needed for seamless blend */
     }
     100% {
-      ; /* end of carousel scroll */
+      transform: translateX(calc(var(--Carousel_Image_Width) * 9 * -1 + var(--Carousel_Image_Blend_Distance) / 8 * 1cqi));
     }
   }
   .Carousel {
@@ -478,5 +478,6 @@
     margin: 0 calc(var(--Carousel_Image_Blend_Distance) / -4 * 1cqi); /* overlap by the total width they are set to blend by */
     width: calc(var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi); /* carousel image width + blend overlap width */
     transform: translateX(calc(var(--Carousel_Image_Width) * -1 + var(--Carousel_Image_Blend_Distance) / 8 * 1cqi)); /* hide duplicate of last photo needed for seamless blend */
+    animation: Carousel_Scroll 30s infinite linear; /* loop carousel in 30s intervals forever */
   }
 }

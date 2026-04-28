@@ -431,10 +431,10 @@
   }
   @keyframes Carousel_Inline_Scroll {
     from {
-      transform: translateX(calc(-1 * var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 8 * 1cqi)); /* hide duplicate of last photo needed for seamless blend */
+      transform: translateX(calc(-1 * var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi)); /* hide duplicate of last photo needed for seamless blend */
     }
     to {
-      transform: translateX(calc((-1 - var(--Carousel_Image_Count)) * var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 8 * 1cqi));
+      transform: translateX(calc((-1 - var(--Carousel_Image_Count)) * var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi));
     }
   }
   .Carousel {

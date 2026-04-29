@@ -500,7 +500,7 @@
     flex: 0 0 auto;/* don't shrink or grow images, maintain explicit width */
     aspect-ratio: 3 / 2;/* images maintain typical photo aspect ratio */
     object-fit: cover;/* crop images to best fit dimensions */
-    mask-image: var(--Carousel_Image_Blend_Mask);/* apply an opacity gradient to the right edge */
+    mask-image: var(--Carousel_Image_Blend_Mask);/* apply an opacity gradient to the left and right edge */
     margin: 0 calc(
       var(--Carousel_Image_Blend_Width)/* 5... */
       / -100/*                           -5%... */

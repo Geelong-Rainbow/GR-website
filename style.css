@@ -1,18 +1,18 @@
-@layer reset,assets,theme,layout; /* defines the priority of each cascade layer */
-@layer reset { /* value initialisation */
+@layer reset,assets,theme,layout;/* defines the priority of each cascade layer */
+@layer reset {/* value initialisation */
   *::before,
   *,
   *::after {
-    box-sizing: border-box; /* width and height values apply to the content, padding, and border of an element */
-    margin: 0; /* remove default margins */
-    padding: 0; /* remove default padding */
+    box-sizing: border-box;/* width and height values apply to the content, padding, and border of an element */
+    margin: 0;/* remove default margins */
+    padding: 0;/* remove default padding */
   }
   html {
-    color-scheme: light dark; /* tells the browser our website supports both light and dark mode */
-    -webkit-font-smoothing: antialiased; /* disable sub-pixel font anti-aliasing on MacOS, prevents unspecified thickness */
-    -webkit-text-size-adjust: none; /* disable automatically resizing text on phones, that's our choice! */
-    text-size-adjust: none; /* as above */
-    hanging-punctuation: first allow-end last; /* as read. not widely supported, use `text-indent` inside negated `@supports` rule */
+    color-scheme: light dark;/* tells the browser our website supports both light and dark mode */
+    -webkit-font-smoothing: antialiased;/* disable sub-pixel font anti-aliasing on MacOS, prevents unspecified thickness */
+    -webkit-text-size-adjust: none;/* disable automatically resizing text on phones, that's our choice! */
+    text-size-adjust: none;/* as above */
+    hanging-punctuation: first allow-end last;/* as read. not widely supported, use `text-indent` inside negated `@supports` rule */
   }
   h1,
   h2,
@@ -21,91 +21,92 @@
   h5,
   h6,
   p {
-    text-wrap: balance; /* have text wrap in a way that best balances the number of characters on each line */
+    text-wrap: balance;/* have text wrap in a way that best balances the number of characters on each line */
   }
   p {
-    text-wrap: pretty; /* if supported, use a stronger algorithm that prevents paragraph orphans */
+    text-wrap: pretty;/* if supported, use a stronger algorithm that prevents paragraph orphans */
   }
-  @media (prefers-reduced-motion: no-preference) { /* if reduced motion is disabled: */
+  @media (prefers-reduced-motion: no-preference) {/* if reduced motion is disabled: */
     html {
-      interpolate-size: allow-keywords; /* allow animating with keywords (e.g. `auto`, `min-content`) */
+      interpolate-size: allow-keywords;/* allow animating with keywords (e.g. `auto`, `min-content`) */
     }
   }
-  @media (prefers-reduced-motion) { /* if reduced motion is enabled: */
+  @media (prefers-reduced-motion) {/* if reduced motion is enabled: */
     *::before,
     *,
     *::after {
-      animation-duration: 0s !important; /* force all keyframe durations to be empty */
-      transition: none !important; /* disable transition animations */
-      scroll-behavior: auto !important; /* disable scroll animations */
+      animation-duration: 0s !important;/* force all keyframe durations to be empty */
+      transition: none !important;/* disable transition animations */
+      scroll-behavior: auto !important;/* disable scroll animations */
     }
   }
 }
-@layer assets { /* typefaces, variables, media */
-  /* typefaces: fallbacks are designed to imitate size and shape of fonts before they are loaded */
-  @font-face { /* default (regular) */
+@layer assets {/* typefaces, variables, media */
+ /* typefaces: fallbacks are designed to imitate size and shape of fonts before they are loaded */
+  @font-face {/* default (regular) */
     font-family: "Neue Einstellung";
     src: url("NeueEinstellung-Normal.woff2") format("woff2");
     font-display: swap;
   }
-  @font-face { /* default (bold) */
+  @font-face {/* default (bold) */
     font-family: "Neue Einstellung";
     src: url("NeueEinstellung-Bold.woff2") format("woff2");
     font-weight: bold;
     font-display: swap;
   }
-  @font-face { /* default (fallback) */
+  @font-face {/* default (fallback) */
     font-family: "Neue Einstellung Fallback";
     size-adjust: 109%;
     ascent-override: 118%;
   }
-  @font-face { /* header */
+  @font-face {/* header */
     font-family: "TAN St. Canard";
     src: url("TANStCanard-Display.woff2") format("woff2");
     font-weight: 900;
     font-display: swap;
   }
-  @font-face { /* header (fallback) */
+  @font-face {/* header (fallback) */
     font-family: "TAN St. Canard Fallback";
     size-adjust: 105%;
     ascent-override: 94%;
   }
-  @font-face { /* event header */
+  @font-face {/* event header */
     font-family: "Negrita Pro";
     src: url("Negrita-Pro.woff2") format("woff2");
     font-display: swap;
   }
-  @font-face { /* event header (fallback) */
+  @font-face {/* event header (fallback) */
     font-family: "Negrita Pro Fallback";
     size-adjust: 79%;
   }
-  /* variables */
+ /* variables */
   :root {
-    /* sizes */
-    --Font_Height: 1.5rem; /* this needs to be configurable in an accessibility menu */
-    --Font_Ratio: pow(2,1/4); /* 1.18920711500272... */
-    --XSmall_Font_Height: calc(pow(var(--Font_Ratio), -2) * var(--Font_Height)); /* 16.9705627484771px; 1.06066017177982rem; */
-    --Small_Font_Height: calc(pow(var(--Font_Ratio), -1) * var(--Font_Height)); /*  20.1815139660891px; 1.26134462288057rem; */
-    --Medium_Font_Height: var(--Font_Height); /*                                    24px;               1.5rem;              */
-    --H6_Font_Height: calc(pow(var(--Font_Ratio), 1) * var(--Font_Height)); /*      28.5409707600653px; 1.78381067250408rem; */
-    --H5_Font_Height: calc(pow(var(--Font_Ratio), 2) * var(--Font_Height)); /*      33.9411254969543px; 2.12132034355964rem; */
-    --H4_Font_Height: calc(pow(var(--Font_Ratio), 3) * var(--Font_Height)); /*      40.3630279321783px; 2.52268924576114rem; */
-    --H3_Font_Height: calc(pow(var(--Font_Ratio), 4) * var(--Font_Height)); /*      48px;               3rem;                */
-    --H2_Font_Height: calc(pow(var(--Font_Ratio), 5) * var(--Font_Height)); /*      57.0819415201306px; 3.56762134500816rem; */
-    --H1_Font_Height: calc(pow(var(--Font_Ratio), 6) * var(--Font_Height)); /*      67.8822509939085px; 4.24264068711928rem; */
-    --Body_Border_Width: 5vmin; /* the default width of the rainbow border */
-    --Body_Border_Radius: 1vmin; /* the size of the rounded corners on main parents */
-    --Content_Margin: .25rem; /* the distance between main parents */
-    --Carousel_Image_Count: 8; /* how many images are in the carousel */
-    --Carousel_Image_Width: 25cqi; /* how much of the carousel width each image uses */
-    --Carousel_Image_Blend_Distance: 5; /* how far to horizontally blend each carousel image into each other */
-    --Running_Marginal_Border_Width: 18.75px; /* should match the stroke width of the outermost trans flag circle on the GR logo */
-    /* text: reusable strings only */
+   /* sizes */
+    --Font_Height: 1.5rem;/* this needs to be configurable in an accessibility menu */
+    --Font_Ratio: pow(2,1/4);/* 1.18920711500272... */
+    --XSmall_Font_Height: calc(pow(var(--Font_Ratio), -2) * var(--Font_Height));/* 16.9705627484771px; 1.06066017177982rem; */
+    --Small_Font_Height: calc(pow(var(--Font_Ratio), -1) * var(--Font_Height));/*  20.1815139660891px; 1.26134462288057rem; */
+    --Medium_Font_Height: var(--Font_Height);/*                                    24px;               1.5rem;              */
+    --H6_Font_Height: calc(pow(var(--Font_Ratio), 1) * var(--Font_Height));/*      28.5409707600653px; 1.78381067250408rem; */
+    --H5_Font_Height: calc(pow(var(--Font_Ratio), 2) * var(--Font_Height));/*      33.9411254969543px; 2.12132034355964rem; */
+    --H4_Font_Height: calc(pow(var(--Font_Ratio), 3) * var(--Font_Height));/*      40.3630279321783px; 2.52268924576114rem; */
+    --H3_Font_Height: calc(pow(var(--Font_Ratio), 4) * var(--Font_Height));/*      48px;               3rem;                */
+    --H2_Font_Height: calc(pow(var(--Font_Ratio), 5) * var(--Font_Height));/*      57.0819415201306px; 3.56762134500816rem; */
+    --H1_Font_Height: calc(pow(var(--Font_Ratio), 6) * var(--Font_Height));/*      67.8822509939085px; 4.24264068711928rem; */
+    --Body_Border_Width: 5vmin;/* the default width of the rainbow border */
+    --Body_Border_Radius: 1vmin;/* the size of the rounded corners on main parents */
+    --Content_Margin: .25rem;/* the distance between main parents */
+    --Carousel_Image_Width: 25cqi;/* how much of the carousel width each image uses */
+    --Carousel_Image_Blend_Width: 5;/* horizontal blend width */
+    --Carousel_Image_Count: 8;/* how many images are in the carousel */
+    --Carousel_Image_Duration: 7.5s;/* how long each carousel image is shown */
+    --Running_Marginal_Border_Width: 2rem;/* should match the stroke width of the outermost trans flag circle on the GR logo */
+   /* text: reusable strings only */
     --Entity: "Geelong Rainbow Inc.";
     --ABN: "77 815 116 147";
     --Group_Name: "Geelong Rainbow";
     --Acknowledgement_of_Country: "We acknowledge that we live on the stolen land of the Wadawurrung people of the Kulin nations and we pay our respects to elders past, present and emerging. We acknowledge their continuing connection to land, water and culture and that sovereignty has never been ceded.";
-    /* images: text after slash character is interpretted as alternative text */
+   /* images: text after slash character is interpretted as alternative text */
     --GR_Logo: url("GR_Logo.svg") / var(--Group_Name);
     --GR_Sunrise_Logo: url("GR_Sunrise_Logo.svg") / var(--Group_Name);
     --GR_Icon: url("GR_Icon.svg") / var(--Group_Name);
@@ -113,32 +114,32 @@
     --Aboriginal_Flag: url("Aboriginal_Flag.svg") / "Aboriginal Flag";
     --Torres_Strait_Islander_Flag: url("Torres_Strait_Islander_Flag.svg") / "Torres Strait Islander Flag";
     --CoGG_Logo: url("CoGG_Logo.svg") / "City of Greater Geelong";
-    --Vic_Gov_Logo: url("Vic_Gov_Logo.svg") / "Victoria State Government"; /* Embedded CSS for light/dark mode fill */
+    --Vic_Gov_Logo: url("Vic_Gov_Logo.svg") / "Victoria State Government";/* Embedded CSS for light/dark mode fill */
     --Instagram_Logo: url("Instagram_Logo.svg") / var(--Group_Name) " Instagram Page";
     --Facebook_Logo: url("Facebook_Logo.svg") / var(--Group_Name) " Facebook Page";
     --Messenger_Logo: url("Messenger_Logo.svg") / var(--Group_Name) " Messenger Contact";
     --Pride_Progress_Default_Cursor: url("Pride_Progress_Default_Cursor.svg");
     --Pride_Progress_Pointer_Cursor: url("Pride_Progress_Pointer_Cursor.svg");
-    /* colours: oklch(brightness(0-1) saturation(0-0.37) hue(0-180) / alpha(0-100%)) */
-    /* document colours */
-    --Off-White: oklch(0.9889705061005561 0.011379634175108129 84.5777707769949); /*                 #fffbf3; rgb(255,251,243); */
-    --Neutral_Grey: oklch(0.5 0 0); /*                                                               #636363; rgb(99,99,99);    */
-    --Easy-On-The-Eyes_Black: oklch(0.17644019179778966 0.012395924974050192 226.09244034496973); /* #0b1215; rgb(11,18,21);    */
-    /* base rainbow palette */
-    --Rose: oklch(0.5882089242909252 0.21125331769526942 14.092925606645451); /*                     #dd2a55; rgb(221,42,85);   */
-    --Tangerine: oklch(0.7145689691313319 0.175581688521099 49.11072256569463); /*                   #f77b28; rgb(247,123,40);  */
-    --Sunshine: oklch(0.8653074278560848 0.1497592435129982 90.57949800609094); /*                   #f8ce4d; rgb(248,206,77);  */
-    --Grass: oklch(0.6323845681163087 0.13573679123111135 145.4502619167156); /*                     #4d9f54; rgb(77,159,84);   */
-    --Sky: oklch(0.6041204452605085 0.153540608312167 256.4544847077277); /*                         #3d81db; rgb(61,129,219);  */
-    --Lavender: oklch(0.6648274812493339 0.1308345231366333 313.44398556773535); /*                  #b07acc; rgb(176,122,204); */
-    /* additional colours */
-    --Lagoon: oklch(0.7760964756100834 0.11146157299240993 218.66753479225045); /*                   #54c7e6; rgb(84,199,230);  */
-    --Carnation: oklch(0.813280072225418 0.07913434229338959 4.960306086162063); /*                  #efadbb; rgb(239,173,187); */
-    --Quartz: oklch(0.9802682745556885 0.022320705660403263 87.1491756931726); /*                    #fff8e8; rgb(255,248,232); */
-    --Coal: oklch(0.36483800712846853 0.0013678040297622838 17.219942098963315); /*                  #3f3e3e; rgb(63,62,62);    */
-    --Earth: oklch(0.475285702751123 0.03134421230298802 44.435245914265465); /*                     #6c574e; rgb(108,87,78);   */
-    --Clay: oklch(0.4894096212898493 0.0870247603918415 22.627866185563676); /*                      #8b4b49; rgb(139,75,73);   */
-    /* gradient backgrounds */
+   /* colours: oklch(brightness(0-1) saturation(0-0.37) hue(0-180) / alpha(0-100%)) */
+   /* document colours */
+    --Off-White: oklch(0.9889705061005561 0.011379634175108129 84.5777707769949);/*                 #fffbf3; rgb(255,251,243); */
+    --Neutral_Grey: oklch(0.5 0 0);/*                                                               #636363; rgb(99,99,99);    */
+    --Easy-On-The-Eyes_Black: oklch(0.17644019179778966 0.012395924974050192 226.09244034496973);/* #0b1215; rgb(11,18,21);    */
+   /* base rainbow palette */
+    --Rose: oklch(0.5882089242909252 0.21125331769526942 14.092925606645451);/*                     #dd2a55; rgb(221,42,85);   */
+    --Tangerine: oklch(0.7145689691313319 0.175581688521099 49.11072256569463);/*                   #f77b28; rgb(247,123,40);  */
+    --Sunshine: oklch(0.8653074278560848 0.1497592435129982 90.57949800609094);/*                   #f8ce4d; rgb(248,206,77);  */
+    --Grass: oklch(0.6323845681163087 0.13573679123111135 145.4502619167156);/*                     #4d9f54; rgb(77,159,84);   */
+    --Sky: oklch(0.6041204452605085 0.153540608312167 256.4544847077277);/*                         #3d81db; rgb(61,129,219);  */
+    --Lavender: oklch(0.6648274812493339 0.1308345231366333 313.44398556773535);/*                  #b07acc; rgb(176,122,204); */
+   /* additional colours */
+    --Lagoon: oklch(0.7760964756100834 0.11146157299240993 218.66753479225045);/*                   #54c7e6; rgb(84,199,230);  */
+    --Carnation: oklch(0.813280072225418 0.07913434229338959 4.960306086162063);/*                  #efadbb; rgb(239,173,187); */
+    --Quartz: oklch(0.9802682745556885 0.022320705660403263 87.1491756931726);/*                    #fff8e8; rgb(255,248,232); */
+    --Coal: oklch(0.36483800712846853 0.0013678040297622838 17.219942098963315);/*                  #3f3e3e; rgb(63,62,62);    */
+    --Earth: oklch(0.475285702751123 0.03134421230298802 44.435245914265465);/*                     #6c574e; rgb(108,87,78);   */
+    --Clay: oklch(0.4894096212898493 0.0870247603918415 22.627866185563676);/*                      #8b4b49; rgb(139,75,73);   */
+   /* gradient backgrounds */
     --Grainy_Rainbow_Background:
       url("Grainy_Filter.svg"),
       radial-gradient(circle at 0% 50%,
@@ -215,35 +216,33 @@
       0deg,
       var(--Trans_Flag_Hard)
     );
-    --Carousel_Blend_Mask: linear-gradient(
-      90deg,
-      #0000,
-      calc(var(--Carousel_Image_Blend_Distance) * 1% / 2),
-      #000 calc(var(--Carousel_Image_Blend_Distance) * 1%) calc(100% - var(--Carousel_Image_Blend_Distance) * 1%),
-      calc(100% - var(--Carousel_Image_Blend_Distance) * 1% / 2),
-      #0000
+    --Carousel_Image_Blend_Mask: linear-gradient(
+      to right,
+      #0000 0%,
+      #000 calc(var(--Carousel_Image_Blend_Width) * 1%) calc(100% - var(--Carousel_Image_Blend_Width) * 1%),/* 5% 95% */
+      #0000 100%
     );
   }
 }
 @layer theme {
-  /* common theme defines */
-  /* cursors have embedded CSS to style border for light/dark mode */
+ /* common theme defines */
+ /* cursors have embedded CSS to style border for light/dark mode */
   * {
-    cursor: url("Pride_Progress_Default_Cursor.svg") 0 0, default; /* default cursor */
+    cursor: url("Pride_Progress_Default_Cursor.svg") 0 0, default;/* default cursor */
   }
   a {
-    cursor: url("Pride_Progress_Pointer_Cursor.svg") 13 0, pointer; /* link hover cursor */
+    cursor: url("Pride_Progress_Pointer_Cursor.svg") 13 0, pointer;/* link hover cursor */
   }
   a:visited {
-    color: var(--Lavender); /* visited link colour */
+    color: var(--Lavender);/* visited link colour */
   }
   html {
-    background: var(--Grainy_Rainbow_Background); /* mesh-gradient rainbow spiral background */
-    background-blend-mode: luminosity, normal, normal, normal, normal, normal, normal; /* set grainy texture SVG layer to only affect brightness of other layers */
-    min-height: 100vh; /* ensure background fills entire viewport */
+    background: var(--Grainy_Rainbow_Background);/* mesh-gradient rainbow spiral background */
+    background-blend-mode: luminosity, normal, normal, normal, normal, normal, normal;/* set grainy texture SVG layer to only affect brightness of other layers */
+    min-height: 100vh;/* ensure background fills entire viewport */
     font-family: "Neue Einstellung", "Neue Einstellung Fallback";
   }
-  /* typeface family, size assignments */
+ /* typeface family, size assignments */
   h1,
   h2 {
     font-family: "TAN St. Canard", "TAN St. Canard Fallback";
@@ -264,7 +263,7 @@
   footer {
     font-size: var(--XSmall_Font_Height);
   }
-  /* class content insertion */
+ /* class content insertion */
   .Entity::before {
     content: var(--Entity);
   }
@@ -289,15 +288,15 @@
   .Torres_Strait_Islander_Flag {
     content: var(--Torres_Strait_Islander_Flag);
   }
-  @media (prefers-color-scheme: light) { /* light colour theme */
+  @media (prefers-color-scheme: light) {/* light colour theme */
     @supports (scrollbar-color: auto) {
       * {
-        scrollbar-color: color-mix(in oklch, var(--Coal) 70%, var(--Off-White)) var(--Off-White); /* uses color-mix to simulate otherwise unsupported opacity value */
+        scrollbar-color: color-mix(in oklch, var(--Coal) 70%, var(--Off-White)) var(--Off-White);/* uses color-mix to simulate otherwise unsupported opacity value */
       }
     }
     @supports selector(::-webkit-scrollbar) {
       *::-webkit-scrollbar-thumb {
-        background: color-mix(in oklch, var(--Coal) 70%, var(--Off-White)); /* as above. fallback scrollbar theming */
+        background: color-mix(in oklch, var(--Coal) 70%, var(--Off-White));/* as above. fallback scrollbar theming */
       }
       *::-webkit-scrollbar-track {
         background: var(--Off-White);
@@ -316,7 +315,7 @@
       color: var(--Sky);
     }
   }
-  @media (prefers-color-scheme: dark) { /* dark colour theme: should be mirror of light colour theme with unique values */
+  @media (prefers-color-scheme: dark) {/* dark colour theme: should be mirror of light colour theme with unique values */
     @supports (scrollbar-color: auto) {
       * {
         scrollbar-color: color-mix(in oklch, var(--Off-White) 70%, var(--Coal)) var(--Coal);
@@ -343,34 +342,34 @@
       color: var(--Lagoon);
     }
   }
-  @media (prefers-contrast: more) { /* high contrast scheme colours */
-    /* add high contrast color overrides here */
+  @media (prefers-contrast: more) {/* high contrast scheme colours */
+   /* add high contrast color overrides here */
   }
-  @media (prefers-contrast: less) { /* low contrast scheme colours: should be mirror of high contrast scheme with unique values */
-    /* add low contrast color overrides here */
+  @media (prefers-contrast: less) {/* low contrast scheme colours: should be mirror of high contrast scheme with unique values */
+   /* add low contrast color overrides here */
   }
 }
-@layer layout { /* element arrangment */
+@layer layout {/* element arrangment */
   html {
     min-height: 100vh;
   }
   body {
-    height: calc(100vh - (var(--Body_Border_Width) * 2)); /* allow for the rainbow border to display on the bottom of the page (needs rework to allow body to be taller than 100vh) */
+    height: calc(100vh - (var(--Body_Border_Width) * 2));/* allow for the rainbow border to display on the bottom of the page (needs rework to allow body to be taller than 100vh) */
     margin: 
       max(env(safe-area-inset-top), var(--Body_Border_Width))
       max(env(safe-area-inset-right), var(--Body_Border_Width))
       max(env(safe-area-inset-bottom), var(--Body_Border_Width))
-      max(env(safe-area-inset-left), var(--Body_Border_Width)); /* set each rainbow border width to the largest value between `Body_Border_Width` and the device's `safe-area-inset` (notch clearance) */
+      max(env(safe-area-inset-left), var(--Body_Border_Width));/* set each rainbow border width to the largest value between `Body_Border_Width` and the device's `safe-area-inset` (notch clearance) */
     border-radius: var(--Body_Border_Radius);
     display: grid;
-    grid-template: /* heights: */
-      "Header  Header" 3fr /* 30% */
-      "Sidebar Main"   6fr /* 60% */
-      "Sidebar Footer" 1fr /* 10% */
-      /           1fr  3fr;
-      /* widths: 25%, 75% */
+    grid-template:/* heights: */
+      "Header  Header" 3fr/* 30% */
+      "Sidebar Main"   6fr/* 60% */
+      "Sidebar Footer" 1fr/* 10% */
+      /          1fr 3fr;
+      /* widths: 25% 75% */
   }
-  /* common styling */
+ /* common styling */
   header,
   .Carousel,
   .Sidebar,
@@ -382,20 +381,20 @@
   header {
     grid-area: Header;
     display: grid;
-    grid-template: /* heights: */
-      "Carousel"   3fr /* 75% */
-      "Navigation" 1fr /* 25% */
+    grid-template:/* heights: */
+      "Carousel"   3fr/* 75% */
+      "Navigation" 1fr/* 25% */
       /          1fr;
       /* widths: 100% */
   }
   .Sidebar {
     grid-area: Sidebar;
     display: grid;
-    grid-template: /* heights: */
-      "Quick-Links" 1fr /* 50% */
-      "Calendar"    1fr /* 50% */
-      /          1fr;
-      /* widths: 100% */
+    grid-template:/* heights: */
+      "Quick-Links" 1fr/* 50% */
+      "Calendar"    1fr/* 50% */
+      /           1fr;
+      /* widths:  100% */
   }
   main {
     grid-area: Main;
@@ -406,20 +405,20 @@
     text-align: center;
     text-wrap: balance;
     overflow-y: scroll;
-    @container (width < 90ch) { /* if less than 90 characters can be displayed along the width: */
-      /* mobile layout goes here */
+    @container (width < 90ch) {/* if less than 90 characters can be displayed along the width: */
+     /* mobile layout goes here */
     }
   }
   footer {
     grid-area: Footer;
     display: grid;
-    grid-template: /* heights: */
-      "Acknowledgement_of_Country Flags" 3fr /* 75% */
-      "Acknowledgement_of_Country ABN"   1fr /* 25% */
-      /                         3fr  1fr;
-      /* widths:                75%, 25% */
+    grid-template:/* heights: */
+      "Acknowledgement_of_Country Flags" 3fr/* 75% */
+      "Acknowledgement_of_Country ABN"   1fr/* 25% */
+      /                            3fr 1fr;
+      /* widths:                   75% 25% */
   }
-  /* section content horizontal centring */
+ /* section content horizontal centring */
   .Carousel,
   .Navigation,
   .Quick-Links,
@@ -431,21 +430,44 @@
   }
   @keyframes Carousel_Inline_Scroll {
     from {
-      transform: translateX(calc(-1 * var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi)); /* hide duplicate of last photo needed for seamless blend */
+      transform: translateX(
+        calc(
+          var(--Carousel_Image_Width)/* 25cqi */
+          * -1/*                        25cqi * -1 = -25cqi */
+        )
+      );
     }
     to {
-      transform: translateX(calc((-1 - var(--Carousel_Image_Count)) * var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi));
+      transform: translateX(
+        calc(
+          (
+            var(--Carousel_Image_Count)/* 8 */
+            + 1/*                         9 */
+          )
+          * var(--Carousel_Image_Width)/* 9 * 25cqi */
+          * -1/*                          225cqi * -1 = -225cqi */
+        )
+      );
     }
   }
   .Carousel {
     grid-area: Carousel;
-    overflow-x: hidden; /* hide carousel photos outside carousel bounds */
-    background-color: #f0f; /* TEMPORARY! background color to check for carousel image blending errors */
+    overflow-x: hidden;/* hide carousel images outside carousel bounds */
+    container-type: inline-size;
   }
   .Carousel_Inline {
-    display: flex; /* use flexbox for horizontal scrolling */
-    container-type: inline-size;
-    animation: 60s linear 0s infinite normal both running Carousel_Inline_Scroll; /* loop carousel in 60s intervals forever, allow pausing when needed */
+    display: flex;/* use flexbox for horizontal scrolling */
+    transform: translateX(
+      calc(
+        var(--Carousel_Image_Width)
+        * -1
+      )
+    );
+    animation: calc(
+      var(--Carousel_Image_Count)/*      8 */
+      * var(--Carousel_Image_Duration)/* 8 * 7.5s = 60s */
+    ) linear 0s infinite normal both running Carousel_Inline_Scroll;/* loop carousel by set duration per photo infinitely, allow pausing when needed for accessibility */
+    background-color: #f0f;
   }
   .Navigation {
     grid-area: Navigation;
@@ -453,9 +475,9 @@
       var(--Gradient_Trans_Flag_Hard_Vertical)
       100% 0 0 0 /
       var(--Running_Marginal_Border_Width) 0 0 0 /
-      var(--Running_Marginal_Border_Width) 0 0 0; /* centre trans flag border on top edge of navigation */
+      var(--Running_Marginal_Border_Width) 0 0 0;/* centre trans flag border on top edge of navigation */
     border-style: solid;
-    isolation: isolate; /* required to ensure `border-image` renders over carousel images */
+    isolation: isolate;/* required to ensure `border-image` renders over carousel images */
   }
   .Quick-Links {
     grid-area: Quick-Links;
@@ -471,15 +493,24 @@
   }
   .ABN {
     grid-area: ABN;
-    align-self: end; /* align to bottom of area */
-    justify-self: end; /* align to right of area */
+    align-self: end;/* align to bottom of area */
+    justify-self: end;/* align to right of area */
   }
   .Carousel_Inline > img {
-    flex: 0 0 auto; /* don't shrink or grow photos, maintain explicit width */
-    aspect-ratio: 3 / 2; /* photos maintain typical photo aspect ratio */
-    object-fit: cover; /* crop photos to best fit dimensions */
-    mask-image: var(--Carousel_Blend_Mask); /* apply an opacity gradient to the left and right edges */
-    margin: 0 calc(var(--Carousel_Image_Blend_Distance) / -4 * 1cqi); /* overlap by the total width they are set to blend by */
-    width: calc(var(--Carousel_Image_Width) + var(--Carousel_Image_Blend_Distance) / 2 * 1cqi); /* carousel image width + blend overlap width */
+    flex: 0 0 auto;/* don't shrink or grow images, maintain explicit width */
+    aspect-ratio: 3 / 2;/* images maintain typical photo aspect ratio */
+    object-fit: cover;/* crop images to best fit dimensions */
+    mask-image: var(--Carousel_Image_Blend_Mask);/* apply an opacity gradient to the right edge */
+    margin: 0 calc(
+      var(--Carousel_Image_Blend_Width)/* 5... */
+      / -100/*                           -5%... */
+      * var(--Carousel_Image_Width)/*    -5% of 25cqi = -1.25cqi */
+    );/* overlap carousel images by blend width */
+    width: calc(
+      var(--Carousel_Image_Width)/*         25cqi... */
+      + var(--Carousel_Image_Blend_Width)/* 25cqi + 5... */
+      / 50/*                                25cqi + 10%... */
+      * var(--Carousel_Image_Width)/*       25cqi + 10% of 25cqi = 27.5cqi */
+    );/* increase carousel image width by double blend width to fit quarter of carousel */
   }
 }

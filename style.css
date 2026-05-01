@@ -458,6 +458,7 @@
     grid-area: Carousel;
     overflow-x: hidden;/* hide carousel images outside carousel bounds */
     container-type: inline-size;
+    margin-bottom: 0;/* remove bottom margin */
   }
   .Carousel_Inline {
     display: flex;/* use flexbox for horizontal scrolling */
@@ -475,6 +476,7 @@
   }
   .Navigation {
     grid-area: Navigation;
+    height: 100%;
     border-image:
       var(--Gradient_Trans_Flag_Hard_Vertical)
       100% 0 0 0 //* divide border such that only top section is used for the border image */
@@ -499,7 +501,7 @@
     position: absolute;/*position logo relative to navigation bar*/
     place-self: start center;/*position logo to the top-middle of the navigation bar*/
     inset: 0 50%;/*set the horizontal distance to 50% of the parent element*/
-    transform: translateY(-50%);/*move the image upwards by half its height*/
+    transform: translateY(-50%);/*move the logo upwards by half its height*/
   }
   .Quick-Links {
     grid-area: Quick-Links;

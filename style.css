@@ -8,7 +8,7 @@
     padding: 0;/* remove default padding */
   }
   html {
-    color-scheme: light dark;/* tells the browser our website supports both light and dark mode */
+    color-scheme: light dark;/* website supports both light and dark mode */
     -webkit-font-smoothing: antialiased;/* disable sub-pixel font anti-aliasing on MacOS, prevents unspecified thickness */
     -webkit-text-size-adjust: none;/* disable automatically resizing text on phones, that's our choice! */
     text-size-adjust: none;/* as above */
@@ -124,22 +124,22 @@
    /* colours: oklch(brightness(0-1) saturation(0-0.37) hue(0-180) / alpha(0-100%)) */
    /* document colours */
     --Off-White: oklch(0.9889705061005561 0.011379634175108129 84.5777707769949);/*                 #fffbf3; rgb(255,251,243); */
-    --Neutral_Grey: oklch(0.5 0 0);/*                                                               #636363; rgb(99,99,99);    */
-    --Easy-On-The-Eyes_Black: oklch(0.17644019179778966 0.012395924974050192 226.09244034496973);/* #0b1215; rgb(11,18,21);    */
+    --Neutral_Grey: oklch(0.5 0 0);/*                                                               #636363; rgb(99, 99, 99); */
+    --Easy-On-The-Eyes_Black: oklch(0.17644019179778966 0.012395924974050192 226.09244034496973);/* #0b1215; rgb(11, 18, 21); */
    /* base rainbow palette */
-    --Rose: oklch(0.5882089242909252 0.21125331769526942 14.092925606645451);/*                     #dd2a55; rgb(221,42,85);   */
-    --Tangerine: oklch(0.7145689691313319 0.175581688521099 49.11072256569463);/*                   #f77b28; rgb(247,123,40);  */
-    --Sunshine: oklch(0.8653074278560848 0.1497592435129982 90.57949800609094);/*                   #f8ce4d; rgb(248,206,77);  */
-    --Grass: oklch(0.6323845681163087 0.13573679123111135 145.4502619167156);/*                     #4d9f54; rgb(77,159,84);   */
-    --Sky: oklch(0.6041204452605085 0.153540608312167 256.4544847077277);/*                         #3d81db; rgb(61,129,219);  */
+    --Rose: oklch(0.5882089242909252 0.21125331769526942 14.092925606645451);/*                     #dd2a55; rgb(221,42, 85); */
+    --Tangerine: oklch(0.7145689691313319 0.175581688521099 49.11072256569463);/*                   #f77b28; rgb(247,123,40); */
+    --Sunshine: oklch(0.8653074278560848 0.1497592435129982 90.57949800609094);/*                   #f8ce4d; rgb(248,206,77); */
+    --Grass: oklch(0.6323845681163087 0.13573679123111135 145.4502619167156);/*                     #4d9f54; rgb(77, 159,84); */
+    --Sky: oklch(0.6041204452605085 0.153540608312167 256.4544847077277);/*                         #3d81db; rgb(61, 129,219); */
     --Lavender: oklch(0.6648274812493339 0.1308345231366333 313.44398556773535);/*                  #b07acc; rgb(176,122,204); */
    /* additional colours */
-    --Lagoon: oklch(0.7760964756100834 0.11146157299240993 218.66753479225045);/*                   #54c7e6; rgb(84,199,230);  */
+    --Lagoon: oklch(0.7760964756100834 0.11146157299240993 218.66753479225045);/*                   #54c7e6; rgb(84, 199,230); */
     --Carnation: oklch(0.813280072225418 0.07913434229338959 4.960306086162063);/*                  #efadbb; rgb(239,173,187); */
     --Quartz: oklch(0.9802682745556885 0.022320705660403263 87.1491756931726);/*                    #fff8e8; rgb(255,248,232); */
-    --Coal: oklch(0.36483800712846853 0.0013678040297622838 17.219942098963315);/*                  #3f3e3e; rgb(63,62,62);    */
-    --Earth: oklch(0.475285702751123 0.03134421230298802 44.435245914265465);/*                     #6c574e; rgb(108,87,78);   */
-    --Clay: oklch(0.4894096212898493 0.0870247603918415 22.627866185563676);/*                      #8b4b49; rgb(139,75,73);   */
+    --Coal: oklch(0.36483800712846853 0.0013678040297622838 17.219942098963315);/*                  #3f3e3e; rgb(63, 62, 62); */
+    --Earth: oklch(0.475285702751123 0.03134421230298802 44.435245914265465);/*                     #6c574e; rgb(108,87, 78); */
+    --Clay: oklch(0.4894096212898493 0.0870247603918415 22.627866185563676);/*                      #8b4b49; rgb(139,75, 73); */
    /* gradient backgrounds */
     --Grainy_Rainbow_Background:
       url("Grainy_Filter.svg"),

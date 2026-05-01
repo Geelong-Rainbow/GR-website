@@ -252,7 +252,8 @@
     font-family: "TAN St. Canard", "TAN St. Canard Fallback";
   }
   header {
-    font-size: var(--H6_Font_Height);
+    font-size: var(--H5_Font_Height);
+    font-weight: bold;
   }
   main {
     font-size: var(--Medium_Font_Height);
@@ -266,6 +267,9 @@
   aside,
   footer {
     font-size: var(--XSmall_Font_Height);
+  }
+  :any-link {
+    text-decoration-thickness: calc(1rem / 6) !important;/* override potential forced thickness from Firefox's always_underline_links rule*/  
   }
  /* class content insertion */
   .Entity::before {
@@ -492,7 +496,7 @@
   .Navigation {
     grid-area: Navigation;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 4fr 4fr 5fr 5fr 4fr 4fr;
     position: relative;
   }
   .Navigation::before {
@@ -521,7 +525,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-text-stroke-width: .25px;
   }
   .Navigation_Button:nth-of-type(1) {
     background-color: var(--Rose);
@@ -531,11 +534,11 @@
   }
   .Navigation_Button:nth-of-type(3) {
     background-color: var(--Sunshine);
-    padding-right: 37.5%;
+    padding-right: 37.5%;/* logo padding */
   }
   .Navigation_Button:nth-of-type(4) {
     background-color: var(--Grass);
-    padding-left: 37.5%;
+    padding-left: 37.5%;/* logo padding */
   }
   .Navigation_Button:nth-of-type(5) {
     background-color: var(--Sky);

@@ -283,6 +283,9 @@
   .GR_Logo {
     content: var(--GR_Logo);
   }
+  .GR_Logo::selection {
+    background-color: #0000;
+  }
   .Aboriginal_Flag {
     content: var(--Aboriginal_Flag);
   }

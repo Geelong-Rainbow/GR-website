@@ -520,6 +520,7 @@
     grid-area: ABN;
     align-self: end;/* align to bottom of area */
     justify-self: end;/* align to right of area */
+    margin-right: var(--Content_Margin);/*move leftwards by content margin*/
   }
   .Carousel_Inline > img {
     flex: 0 0 auto;/* don't shrink or grow images, maintain explicit width */

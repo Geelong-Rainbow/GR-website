@@ -95,7 +95,7 @@
     --H1_Font_Height: calc(pow(var(--Font_Ratio), 6) * var(--Font_Height));/*      67.8822509939085px; 4.24264068711928rem; */
     --Body_Border_Width: 5vmin;/* the default width of the rainbow border */
     --Body_Border_Radius: 1vmin;/* the size of the rounded corners on main parents */
-    --Content_Margin: .25rem;/* the distance between main parents */
+    --Content_Margin: .25vmin;/* the distance between main parents */
     --Carousel_Image_Width: 25cqi;/* how much of the carousel width each image uses */
     --Carousel_Image_Blend_Width: 5;/* horizontal blend width */
     --Carousel_Image_Count: 8;/* how many images are in the carousel */

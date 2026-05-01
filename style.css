@@ -318,6 +318,9 @@
     footer {
       background: var(--Quartz);
     }
+    .Navigation_Button:link {
+      color: var(--Off-White);
+    }
     a:link {
       color: var(--Sky);
     }
@@ -347,6 +350,9 @@
     }
     a:link {
       color: var(--Lagoon);
+    }
+    .Navigation_Button:link {
+      color: var(--Coal);
     }
   }
   @media (prefers-contrast: more) {/* high contrast scheme colours */
@@ -485,18 +491,24 @@
   }
   .Navigation {
     grid-area: Navigation;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+  }
+  .Navigation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     border-image:
       var(--Gradient_Trans_Flag_Hard_Vertical)
       100% 0 0 0 //* divide border such that only top section is used for the border image */
-      calc(
-        var(--Running_Marginal_Border_Width)
-      ) 0 0 0 //* set top section width to running marginal border width */
+      var(--Running_Marginal_Border_Width) 0 0 0 //* set top section width to running marginal border width */
       calc(
         var(--Running_Marginal_Border_Width)
         / 2
-      ) 0 0 0;/* outset the border by half the running marginal border width */
+      ) 0 0 0;/* outset border by half of running marginal border width */
     border-style: solid;
-    position: relative;
+    pointer-events: none;
   }
   .GR_Logo {
     height: 20vmin;/* set to 20% of shortest viewport length */
@@ -504,6 +516,32 @@
     place-self: start center;/* position logo to the top-middle of the navigation bar */
     inset: 0 50%;/* set the horizontal distance to 50% of the parent element */
     transform: translateY(-50%);/* move the logo upwards by half its height */
+  }
+  .Navigation_Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-text-stroke-width: .25px;
+  }
+  .Navigation_Button:nth-of-type(1) {
+    background-color: var(--Rose);
+  }
+  .Navigation_Button:nth-of-type(2) {
+    background-color: var(--Tangerine);
+  }
+  .Navigation_Button:nth-of-type(3) {
+    background-color: var(--Sunshine);
+    padding-right: 37.5%;
+  }
+  .Navigation_Button:nth-of-type(4) {
+    background-color: var(--Grass);
+    padding-left: 37.5%;
+  }
+  .Navigation_Button:nth-of-type(5) {
+    background-color: var(--Sky);
+  }
+  .Navigation_Button:nth-of-type(6) {
+    background-color: var(--Lavender);
   }
   .Quick-Links {
     grid-area: Quick-Links;

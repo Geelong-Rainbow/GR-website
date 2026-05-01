@@ -100,7 +100,7 @@
     --Carousel_Image_Blend_Width: 5;/* horizontal blend width */
     --Carousel_Image_Count: 8;/* how many images are in the carousel */
     --Carousel_Image_Duration: 7.5s;/* how long each carousel image is shown */
-    --Running_Marginal_Border_Width: 2rem;/* should match the stroke width of the outermost trans flag circle on the GR logo */
+    --Running_Marginal_Border_Width: 13.954px;/* should match the stroke width of the outermost trans flag circle on the GR logo */
    /* text: reusable strings only */
     --Entity: "Geelong Rainbow Inc.";
     --ABN: "77 815 116 147";
@@ -473,11 +473,20 @@
     grid-area: Navigation;
     border-image:
       var(--Gradient_Trans_Flag_Hard_Vertical)
-      100% 0 0 0 /
-      var(--Running_Marginal_Border_Width) 0 0 0 /
-      var(--Running_Marginal_Border_Width) 0 0 0;/* centre trans flag border on top edge of navigation */
+      100% 0 0 0 //* divide border such that only top section is used for the border image */
+      var(--Running_Marginal_Border_Width) 0 0 0 //* set top section width to running marginal border width */
+      calc(var(--Running_Marginal_Border_Width) / 2) 0 0 0;/* outset the border by half the running marginal border width */
     border-style: solid;
+    position: relative;
     isolation: isolate;/* required to ensure `border-image` renders over carousel images */
+  }
+  .GR_Logo {
+    width: 200px;
+    aspect-ratio: 1;
+    position: absolute;
+    place-self: start center;
+    inset: 0 50%;
+    transform: translateY(-50%);
   }
   .Quick-Links {
     grid-area: Quick-Links;

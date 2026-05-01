@@ -100,7 +100,8 @@
     --Carousel_Image_Blend_Width: 5;/* horizontal blend width */
     --Carousel_Image_Count: 8;/* how many images are in the carousel */
     --Carousel_Image_Duration: 7.5s;/* how long each carousel image is shown */
-    --Running_Marginal_Border_Width: 13.954px;/* should match the stroke width of the outermost trans flag circle on the GR logo */
+    --Logo_Size_Multiplication_Factor: 2;/*how much to multiply the logo by*/
+    --Running_Marginal_Border_Width: 6.977px;/* should match the stroke width of the outermost trans flag circle on the GR logo */
    /* text: reusable strings only */
     --Entity: "Geelong Rainbow Inc.";
     --ABN: "77 815 116 147";
@@ -474,19 +475,28 @@
     border-image:
       var(--Gradient_Trans_Flag_Hard_Vertical)
       100% 0 0 0 //* divide border such that only top section is used for the border image */
-      var(--Running_Marginal_Border_Width) 0 0 0 //* set top section width to running marginal border width */
-      calc(var(--Running_Marginal_Border_Width) / 2) 0 0 0;/* outset the border by half the running marginal border width */
+      calc(
+        var(--Running_Marginal_Border_Width)
+        * var(--Logo_Size_Multiplication_Factor)
+      ) 0 0 0 //* set top section width to running marginal border width */
+      calc(
+        var(--Running_Marginal_Border_Width)
+        * var(--Logo_Size_Multiplication_Factor)
+        / 2
+      ) 0 0 0;/* outset the border by half the running marginal border width */
     border-style: solid;
     position: relative;
     isolation: isolate;/* required to ensure `border-image` renders over carousel images */
   }
   .GR_Logo {
-    width: 200px;
-    aspect-ratio: 1;
-    position: absolute;
-    place-self: start center;
-    inset: 0 50%;
-    transform: translateY(-50%);
+    height: calc(
+      100px
+      * var(--Logo_Size_Multiplication_Factor)
+    );/*set original size multiplied by factor*/
+    position: absolute;/*position logo relative to navigation bar*/
+    place-self: start center;/*position logo to the top-middle of the navigation bar*/
+    inset: 0 50%;/*set the horizontal distance to 50% of the parent element*/
+    transform: translateY(-50%);/*move the image upwards by half its height*/
   }
   .Quick-Links {
     grid-area: Quick-Links;

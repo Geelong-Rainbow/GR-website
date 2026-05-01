@@ -100,7 +100,7 @@
     --Carousel_Image_Blend_Width: 5;/* horizontal blend width */
     --Carousel_Image_Count: 8;/* how many images are in the carousel */
     --Carousel_Image_Duration: 7.5s;/* how long each carousel image is shown */
-    --Running_Marginal_Border_Width: 9.84336091px;/* Temporary! should automatically match the stroke width of the outermost trans flag circle on the GR logo */
+    --Running_Marginal_Border_Width: 1.5vmin;/* Temporary! should automatically match current stroke width of GR logo's outermost trans flag circle */
    /* text: reusable strings only */
     --Entity: "Geelong Rainbow Inc.";
     --ABN: "77 815 116 147";
@@ -522,6 +522,7 @@
     align-self: end;/* align to bottom of area */
     justify-self: end;/* align to right of area */
     margin-right: var(--Content_Margin);/*move leftwards by content margin*/
+    text-wrap: nowrap;/* prevent text wrap*/
   }
   .Carousel_Photo {
     flex: 0 0 auto;/* don't shrink or grow images, maintain explicit width */

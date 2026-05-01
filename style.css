@@ -358,7 +358,7 @@
     min-height: 100vh;
   }
   body {
-    height: calc(100vh - (var(--Body_Border_Width) * 2));/* allow for the rainbow border to display on the bottom of the page (needs rework to allow body to be taller than 100vh) */
+    height: calc(100vh - (var(--Body_Border_Width) * 2));/* temporary! limit body height to allow rainbow border visibility on the bottom of the page */
     margin: 
       max(env(safe-area-inset-top), var(--Body_Border_Width))
       max(env(safe-area-inset-right), var(--Body_Border_Width))
@@ -382,6 +382,11 @@
   footer {
     border-radius: var(--Body_Border_Radius);
     margin: var(--Content_Margin);
+  }
+  .Carousel,
+  .Carousel_Inline,
+  .Navigation {
+    height: 100%;
   }
   header {
     grid-area: Header;
@@ -477,7 +482,6 @@
   }
   .Navigation {
     grid-area: Navigation;
-    height: 100%;
     border-image:
       var(--Gradient_Trans_Flag_Hard_Vertical)
       100% 0 0 0 //* divide border such that only top section is used for the border image */

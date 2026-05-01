@@ -77,12 +77,12 @@ Striked Features are implemented or cancelled
   - ~~Opacity can't be used directly, use `color-mix()` CSS function to determine colour~~
 
 ### Header
-- Infinite horizontal photo slideshow carousel
+- ~~Infinite horizontal photo slideshow carousel~~
   - Pick out 8-12 photos
-  - Make photos fit 1/4th of carousel width and 100% of carousel height
+  - ~~Make photos fit 1/4th of carousel width and 100% of carousel height~~
   - ~~Blend transitions between slideshow photo edges~~
 - Navigation Bar
-  - Absolute positioned logo, centred on top margin
+  - ~~Absolute positioned logo, centred on top margin~~
   - ~~Vertical hard-stop trans flag gradient top Border~~
   - gradient is aligned with vertical centre of logo
   - gradient has same width as the outer trans flag circle on logo

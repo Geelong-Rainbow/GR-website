@@ -31,7 +31,7 @@
       interpolate-size: allow-keywords;/* allow animating with keywords (e.g. `auto`, `min-content`) */
     }
   }
-  @media (prefers-reduced-motion) {/* if reduced motion is enabled: */
+  @media (prefers-reduced-motion: reduce) {/* if reduced motion is enabled: */
     *::before,
     *,
     *::after {
@@ -122,27 +122,37 @@
     --Pride_Progress_Pointer_Cursor: url("Pride_Progress_Pointer_Cursor.svg");
    /* colours: oklch(brightness(0-1) saturation(0-0.37) hue(0-180) / alpha(0-100%)) */
    /* document colours */
-    --Off-White:              oklch(.9889705061005561 .011379634175108129 84.5777707769949);/*     #fffbf3, rgb(255,251,243)   */
-    --Neutral_Grey:           oklch(.5 0 0);/*                                                     #636363, rgb(99, 99, 99)    */
-    --Easy-On-The-Eyes_Black: oklch(.17644019179778966 .012395924974050192 226.09244034496973);/*  #0b1215, rgb(11, 18, 21)    */
+    --Off-White:              oklch(.9889705061005561  .011379634175108129  84.5777707769949);/*   #fffbf3, rgb(255,251,243)   */
+    --Neutral_Grey:           oklch(.5                 0                    0);/*                  #636363, rgb(99, 99, 99)    */
+    --Easy-On-The-Eyes_Black: oklch(.17644019179778966 .012395924974050192  226.09244034496973);/* #0b1215, rgb(11, 18, 21)    */
    /* base rainbow palette */
-    --Rose:                   oklch(.5882089242909252 .21125331769526942 14.092925606645451);/*    #dd2a55, rgb(221,42, 85)    */
-    --Tangerine:              oklch(.7145689691313319 .175581688521099 49.11072256569463);/*       #f77b28, rgb(247,123,40)    */
-    --Sunshine:               oklch(.8653074278560848 .1497592435129982 90.57949800609094);/*      #f8ce4d, rgb(248,206,77)    */
-    --Grass:                  oklch(.6323845681163087 .13573679123111135 145.4502619167156);/*     #4d9f54, rgb(77, 159,84)    */
-    --Sky:                    oklch(.6041204452605085 .153540608312167 256.4544847077277);/*       #3d81db, rgb(61, 129,219)   */
-    --Lavender:               oklch(.6648274812493339 .1308345231366333 313.44398556773535);/*     #b07acc, rgb(176,122,204)   */
+    --Rose_Old:               oklch(.5882089242909252  .21125331769526942   14.092925606645451);/* #dd2a55, rgb(221,42, 85)    */
+    --Rose_Dark:              oklch(.658               .21125331769526942   14.092925606645451);
+    --Rose_Light:             oklch(.58821             .21125331769526942   14.092925606645451);
+    --Tangerine:              oklch(.7145689691313319  .175581688521099     49.11072256569463);/*  #f77b28, rgb(247,123,40)    */
+    --Sunshine:               oklch(.8653074278560848  .1497592435129982    90.57949800609094);/*  #f8ce4d, rgb(248,206,77)    */
+    --Grass:                  oklch(.6323845681163087  .13573679123111135   145.4502619167156);/*  #4d9f54, rgb(77, 159,84)    */
+    --Sky_Old:                oklch(.6041204452605085  .153540608312167     256.4544847077277);/*  #3d81db, rgb(61, 129,219)   */
+    --Sky_Dark:               oklch(.638               .153540608312167     256.4544847077277);
+    --Sky_Light:              oklch(.57                .153540608312167     256.4544847077277);
+    --Lavender_Old:           oklch(.6648274812493339  .1308345231366333    313.44398556773535);/* #b07acc, rgb(176,122,204)   */
+    --Lavendar_Dark:          oklch(.793               .182                 295);
+    --Lavendar_Light:         oklch(.577               .157                 295);
    /* additional colours */
-    --Lagoon:                 oklch(.7760964756100834 .11146157299240993 218.66753479225045);/*    #54c7e6, rgb(84, 199,230)   */
-    --Carnation:              oklch(.813280072225418 .07913434229338959 4.960306086162063);/*      #efadbb, rgb(239,173,187)   */
-    --Quartz:                 oklch(.9802682745556885 .022320705660403263 87.1491756931726);/*     #fff8e8, rgb(255,248,232)   */
-    --Coal:                   oklch(.36483800712846853 .0013678040297622838 17.219942098963315);/* #3f3e3e, rgb(63, 62, 62)    */
-    --Earth:                  oklch(.475285702751123 .03134421230298802 44.435245914265465);/*     #6c574e, rgb(108,87, 78)    */
-    --Clay:                   oklch(.4894096212898493 .0870247603918415 22.627866185563676);/*     #8b4b49, rgb(139,75, 73)    */
+    --Lagoon:                 oklch(.7760964756100834  .11146157299240993   218.66753479225045);/* #54c7e6, rgb(84, 199,230)   */
+    --Carnation:              oklch(.813280072225418   .07913434229338959   4.960306086162063);/*  #efadbb, rgb(239,173,187)   */
+    --Quartz_Old:             oklch(.9802682745556885  .022320705660403263  87.1491756931726);/*   #fff8e8, rgb(255,248,232)   */
+    --Quartz_Dark:            oklch(1                  .011                 84.578);
+    --Quartz_Light:           oklch(1                  .011                 84.578);
+    --Coal_Old:               oklch(.36483800712846853 .0013678040297622838 17.219942098963315);/* #3f3e3e, rgb(63, 62, 62)    */
+    --Coal_Dark:              oklch(.257               .0013678040297622838 17.219942098963315);
+    --Earth:                  oklch(.475285702751123   .03134421230298802   44.435245914265465);/* #6c574e, rgb(108,87, 78)    */
+    --Clay_Old:               oklch(.4894096212898493  .0870247603918415    22.627866185563676);/* #8b4b49, rgb(139,75, 73)    */
+    --Clay_Dark:              oklch(.409               .0870247603918415    22.627866185563676);
     /* GR additional logo colours (needed to make trans flag border connect seamlessly with GR logo) */
-    --Light_Blue:             oklch(.8025049396845965 .12028400550133415 226.51303199109637);/*    #5bcefa, rgb(91, 206, 250)  */
-    --Light_Pink:             oklch(.8117869439729681 .09118248975105954 6.323422650295867);/*     #f5a9b8, rgb(245, 169, 184) */
-    --White:                  oklch(1 0 0);/*                                                      #fff,    rgb(255, 255, 255) */
+    --Light_Blue:             oklch(.8025049396845965  .12028400550133415   226.51303199109637);/* #5bcefa, rgb(91, 206, 250)  */
+    --Light_Pink:             oklch(.8117869439729681  .09118248975105954   6.323422650295867);/*  #f5a9b8, rgb(245, 169, 184) */
+    --White:                  oklch(1                  0                    0);/*                  #fff,    rgb(255, 255, 255) */
    /* gradient backgrounds */
     --Grainy_Rainbow_Background:
       url("Grainy_Filter.svg"),
@@ -486,12 +496,11 @@
         var(--Carousel_Image_Width)
         * -1
       )
-    );
+    );/* fallback for disabled animation */
     animation: calc(
       var(--Carousel_Image_Count)/*      8 */
       * var(--Carousel_Image_Duration)/* 8 * 7.5s = 60s */
     ) linear 0s infinite normal both running Carousel_Inline_Scroll;/* loop carousel by set duration per photo infinitely, allow pausing when needed for accessibility */
-    background-color: #f0f;
   }
   .Navigation {
     grid-area: Navigation;

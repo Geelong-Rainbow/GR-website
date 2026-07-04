@@ -153,7 +153,7 @@ Striked Features are implemented or cancelled
 
 ### Extra
 - ~~Pride Progress Cursors w/ 1 pixel-wide dark/light mode border (SVGs with internal CSS)~~
-- Cross-page view transitions (requires [polyfill](https://github.com/demarketed/view-transitions-polyfill "polyfill") for full baseline compatibility)
+- Cross-page view transitions (requires [polyfill](https://github.com/demarketed/view-transitions-polyfill "polyfill") for full baseline compatibility, avoid [gotchas](https://css-tricks.com/cross-document-view-transitions-part-1/ "gotchas"))
 - Reduce size of official Instagram logo while keeping sunset gradient
 - [A drawstring lightbulb for the dark mode toggle](https://codepen.io/jh3y/full/VwjgdLj "A drawstring lightbulb for the dark mode toggle")
   - Users should still be able to click the lightbulb itself to toggle dark mode if they prefer, then we'll just bounce the drawstring

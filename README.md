@@ -78,17 +78,17 @@ Striked Features are implemented or cancelled
 
 ### Header
 - ~~Infinite horizontal photo slideshow carousel~~
-  - Pick out 8-12 photos
+  - Pick out 8-12 photos (TBA, maybe newsletter team's job)
   - ~~Make photos fit 1/4th of carousel width and 100% of carousel height~~
   - ~~Blend transitions between slideshow photo edges~~
 - Navigation Bar
   - ~~Absolute positioned logo, centred on top margin~~
   - ~~Vertical hard-stop trans flag gradient top Border~~
-  - gradient is aligned with vertical centre of logo
-  - gradient has same width as the outer trans flag circle on logo
-- Use isolation to prevent z-index issues
-- 6 Links on Navigation Bar, from left to right:
-  - [Newsletters](https://geelongrainbow.org.au/newsletters "Newsletters"), [Merch](https://geelongrainbow.org.au/merch "Merch"), [Events](https://geelongrainbow.org.au/events "Events"), [About Us](https://geelongrainbow.org.au/about-us "About Us"), [Contact Us](https://geelongrainbow.org.au/contact-us "Contact Us"), [Join Us](https://geelongrainbow.org.au/join-us "Join Us")
+  - ~~gradient is aligned with vertical centre of logo~~
+  - ~~gradient has same width as the outer trans flag circle on logo (javascript)~~
+- ~~Use isolation to prevent z-index issues~~
+- ~~6 Links on Navigation Bar, from left to right:~~
+  - ~~[Newsletters](https://geelongrainbow.org.au/newsletters "Newsletters"), [Merch](https://geelongrainbow.org.au/merch "Merch"), [Events](https://geelongrainbow.org.au/events "Events"), [About Us](https://geelongrainbow.org.au/about-us "About Us"), [Contact Us](https://geelongrainbow.org.au/contact-us "Contact Us"), [Join Us](https://geelongrainbow.org.au/join-us "Join Us")~~
 - Links give adequate clearance around logo at all zoom levels
 - Rainbow block navigation link backgrounds on hover
 
@@ -109,7 +109,9 @@ Striked Features are implemented or cancelled
 - Calendar widget
 - Separate, filtered version of our private calendar to only include public calendar events
 - Quick links
+  - Link to ..?
   - Link to index of queer terms
+  - Link to volunteer portal login (TBD)
 
 ### Footer
 - ~~Acknowledgement of Country~~
@@ -129,11 +131,13 @@ Striked Features are implemented or cancelled
 - RSS feed link including Instagram posts
 
 ### Newsletters Page
+- ..?
 
 ### Merch Page
 - Merchandise storefront embed
 
 ### Events Page
+- ..?
 
 ### About Us Page
 - Comic-style chat bubbles (e.g. [Personle](https://www.personle.app/freeplay "Personle"))
@@ -142,11 +146,14 @@ Striked Features are implemented or cancelled
   - Info sorted in [accordion-style drop-down](https://codepen.io/chriswrightdesign/pen/AVENwb "accordion-style drop-down")
 
 ### Contact Us Page
+- ..?
 
 ### Join Us Page
+- ..?
 
 ### Extra
-- ~~Pride Progress Cursors w/ 1 pixel-wide dark/light mode border~~
+- ~~Pride Progress Cursors w/ 1 pixel-wide dark/light mode border (SVGs with internal CSS)~~
+- Cross-page view transitions (requires [polyfill](https://github.com/demarketed/view-transitions-polyfill "polyfill") for full baseline compatibility)
 - Reduce size of official Instagram logo while keeping sunset gradient
 - [A drawstring lightbulb for the dark mode toggle](https://codepen.io/jh3y/full/VwjgdLj "A drawstring lightbulb for the dark mode toggle")
   - Users should still be able to click the lightbulb itself to toggle dark mode if they prefer, then we'll just bounce the drawstring

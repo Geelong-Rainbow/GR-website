@@ -285,12 +285,12 @@
   /* cursors have embedded CSS to style border for light/dark mode */
   * {
     cursor:
-      url("Pride_Progress_Default_Cursor.svg") 0 0,
+      var(--Pride_Progress_Default_Cursor) 0 0,
       default; /* default cursor */
   }
   a {
     cursor:
-      url("Pride_Progress_Pointer_Cursor.svg") 13 0,
+      var(--Pride_Progress_Pointer_Cursor) 13 0,
       pointer; /* link hover cursor */
   }
   a:visited {

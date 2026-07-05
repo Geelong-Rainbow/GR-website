@@ -122,7 +122,7 @@ Striked Features are implemented or cancelled
 - Container for article previews
   - Appropriate padding
   - ~~90ch flow direction breakpoint~~
-- Articles use a simple 3-cell grid layout for the article author/title/description
+  - Uses a simple 3-cell grid layout for the article author/title/description
 - Instagram posts embedded as articles
   - Seamless with regular articles if possible
 - Pop-out scrollable modals for articles
